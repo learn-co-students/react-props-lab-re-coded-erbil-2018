@@ -1,9 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
-import Spaceship from './components/Spaceship';
+class Spaceship extends React.Component {
+  render() {
+    const { name, speed, hasRockets, colors } = this.props;
 
-ReactDOM.render(
-  <Spaceship name="Millennium Falcon" />,
-  document.getElementById('global')
-);
+    return (
+      <div>
+        <h1>Spaceship Name: {name}</h1>
+        <p>Ship Info:</p>
+        <p>Speed: {speed}</p>
+        <p>Rockets: {hasRockets ? "Yes" : "No"}</p>
+        <ul>
+          {colors.map((color, index) => <li key={index}>{color}</li>)}
+        </ul>
+      </div>
+    )
+  }
+}
+
+
+Spaceship.defaultProps = {
+  speed: 'slow',
+  hasRockets: false,
+  colors: ['black', 'red']
+}
+
+export default Spaceship;
