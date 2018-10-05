@@ -1,9 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import Spaceship from './components/Spaceship';
-
-ReactDOM.render(
-  <Spaceship name="Millennium Falcon" />,
-  document.getElementById('global')
-);
+ export default class Spaceship extends React.Component{
+  render() {
+    Spaceship.defaultProps = {
+      speed: 'slow',
+      hasRockets: false,
+      colors: ['black', 'red']
+    };
+    return (
+       <div>
+        name = {this.props.name}
+        speed = {this.props.speed}
+        colors = {this.props.colors}
+      </div>
+    )
+  }
+} 
